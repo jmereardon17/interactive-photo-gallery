@@ -1,0 +1,11 @@
+[type="search"] {
+  display: block;
+  width: 50%;
+  max-width: 420px;
+  margin: auto;
+  @extend %field;
+}
+
+::placeholder {
+  color: $color-text;
+}

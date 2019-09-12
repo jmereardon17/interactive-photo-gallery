@@ -1,0 +1,11 @@
+.gallery {
+  margin-top: 30px;
+  @include mq('xs') {
+    @include flex($dir: row, $wrap: wrap, $just: center) {
+    }
+  }
+  &__item {
+    margin: 19px $gutter;
+    flex: 0 160px;
+  }
+}

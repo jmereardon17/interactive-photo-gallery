@@ -1,0 +1,37 @@
+// Color variables
+$white                   : #fff;
+$black                   : #000;
+
+$color-text              : #999;
+$color-text-light        : lighten($color-text, 30%);
+
+$color-focus-state       : darken($color-text-light, 30%);
+
+// Font variables
+$font-stack-primary          : "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$font-weight-regular         : 400;
+$font-weight-semi-bold       : 600;
+$font-weight-bold            : 800;
+$font-weight-black           : 900;
+
+$base-font-size              : 16px;
+$base-font-line-height       : 1.5;
+
+$base-font-styles            : #{$base-font-size}/$base-font-line-height $font-stack-primary;
+
+// Style variables
+
+$border-radius                : 4px;
+$border-form-field            : 1.5px solid $color-text-light;
+
+// Layout variables
+
+$max-width       : 980px;
+$gutter          : 25px;
+
+$breakpoints:(
+  'xs'        : 480px,
+  'med'       : 780px,
+  'lg'        : 1024px
+);

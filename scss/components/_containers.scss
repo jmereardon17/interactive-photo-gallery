@@ -1,0 +1,11 @@
+.container {
+  text-align: center;
+  @include mq('med') {
+    width: 95%;
+    margin: 1em auto 30px;
+  }
+  @include mq('lg') {
+    width: 85%;
+    max-width: $max-width;
+  }
+}
