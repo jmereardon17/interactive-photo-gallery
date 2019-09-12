@@ -432,4 +432,18 @@ ul {
   flex: 0 160px;
 }
 
+.lightbox .lb-data .lb-caption {
+  color: #e6e6e6;
+  font-size: 13.5px;
+  font-style: italic;
+}
+.lightbox .lb-data .lb-close {
+  opacity: 0.25;
+  -webkit-transition: opacity 0.5s ease 0.3s;
+  transition: opacity 0.5s ease 0.3s;
+}
+.lightbox .lb-data .lb-close:hover {
+  opacity: 0.9;
+}
+
 /*# sourceMappingURL=application.css.map */
