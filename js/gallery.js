@@ -61,8 +61,8 @@ var imageContent = [
   },
 ];
 
-function printHTMLGallery(array) {
-  var html = '<ul class="gallery">';
+const printHTMLGallery = array => {
+  let html = '<ul class="gallery">';
   for (var i = 0; i < array.length; i += 1) {
     html += '<li class="gallery__item">';
     html += '<a class="gallery__link" href="img/' + array[i].file + '" ';
@@ -74,6 +74,6 @@ function printHTMLGallery(array) {
   }
   html += '</ul>';
   document.write(html);
-}
+};
 
 printHTMLGallery(imageContent);
