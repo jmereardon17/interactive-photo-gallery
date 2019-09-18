@@ -50,7 +50,6 @@ search.addEventListener("keyup", function(){
     let caption = imageContent[i].caption.toLowerCase();
     let title = imageContent[i].title.toLowerCase();
     searchStr = search.value.toLowerCase();
-    searchTerms = searchStr.split(', ');
 
     // Check to see if the caption matches the search input
     if ( caption.indexOf(searchStr) > -1 ) {
@@ -59,10 +58,18 @@ search.addEventListener("keyup", function(){
     } else if ( title.indexOf(searchStr) > -1 ) {
       photoLinks[i].parentElement.style = "display:block;";
       // Check to see if the search term array values matches any of the image titles
-    } else if ( searchTerms.indexOf(title) > -1 ) {
-      photoLinks[i].parentElement.style = "display:block;";
     } else {
-      photoLinks[i].parentElement.style = "display:none";
+      if ( searchStr.includes(",") ) {
+        searchTerms = searchStr.trim().split(', ');
+        for (var j = 0; j < searchTerms.length; j += 1) {
+          let term = searchTerms[j];
+          if ( title.indexOf(term) > -1 ) {
+           photoLinks[j].parentElement.style = "display:block;";
+          } else {
+            photoLinks[i].parentElement.style = "display:none";
+          }
+        }
+      }
     }
   }
 });
