@@ -1,25 +1,3 @@
-let search;
-let searchStr;
-let photoLinks;
-let searchTerms = [];
-
-const getSearchTermsAsArray = (input) => {
-  searchTerms = input.replace(/\s/g, "").trim().split(',');
-  return searchTerms;
-}
-
-const checkSearchTerms = (array) => {
-  for (let i = 0; i < imageContent.length; i += 1) {
-    let term = array[i];
-    let title = imageContent[i].title.toLowerCase();
-    if ( title.indexOf(term) > -1 ) {
-      photoLinks[i].parentElement.style = "display:block;";
-    } else {
-      photoLinks[i].parentElement.style = "display:none;";
-    }
-  }
-}
-
 // Customize Lightbox2 plugin options
 lightbox.option({
   'alwaysShowNavOnTouchDevices': true,
@@ -30,8 +8,37 @@ lightbox.option({
 });
 
 /*
-  Search filter for image gallery
+  Image gallery search filter
 */
+
+let search;
+let searchStr;
+let photoLinks;
+let searchTerms = [];
+
+const getSearchTermsAsArray = (input) => {
+  searchTerms = input.replace(/\s/g, "").trim().split(',');
+  // Remove all whitespace elements in the array and return a valid keyword array
+  for (let j = 0; j < searchTerms.length; j += 1) {
+    if (searchTerms[j] === undefined || searchTerms[j] == "") {
+      searchTerms.splice(j, 1);
+      j--;
+    }
+  }
+  return searchTerms;
+}
+
+const checkSearchTerms = (array) => {
+  for (let k = 0; k < imageContent.length; k += 1) {
+    let term = array[k];
+    let title = imageContent[k].title.toLowerCase();
+    if ( title.indexOf(term) > -1 ) {
+      photoLinks[k].parentElement.style = "display:block;";
+    } else {
+      photoLinks[k].parentElement.style = "display:none;";
+    }
+  }
+}
 
 // Get html search input element
 search = document.getElementById("searchInput");
@@ -69,7 +76,6 @@ search.addEventListener('keyup', function(){
     let caption = imageContent[i].caption.toLowerCase();
     let title = imageContent[i].title.toLowerCase();
     searchStr = search.value.toLowerCase();
-
     if (searchStr.includes(',')) {
       getSearchTermsAsArray(searchStr);
       checkSearchTerms(searchTerms);
