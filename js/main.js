@@ -28,15 +28,31 @@ const getSearchTermsAsArray = (input) => {
   return searchTerms;
 }
 
+// const checkSearchTerms = (array) => {
+//   for (let k = 0; k < imageContent.length; k += 1) {
+//     let term = array[k];
+//     let title = imageContent[k].title.toLowerCase();
+//     if ( title.indexOf(term) > -1 ) {
+//       photoLinks[k].parentElement.style = "display:block;";
+//     } else {
+//       photoLinks[k].parentElement.style = "display:none;";
+//     }
+//   }
+// }
+
 const checkSearchTerms = (array) => {
   for (let k = 0; k < imageContent.length; k += 1) {
-    let term = array[k];
-    let title = imageContent[k].title.toLowerCase();
-    if ( title.indexOf(term) > -1 ) {
-      photoLinks[k].parentElement.style = "display:block;";
-    } else {
       photoLinks[k].parentElement.style = "display:none;";
-    }
+
+      let title = imageContent[k].title.toLowerCase();
+
+      for (let l = 0; l < array.length; l++) {
+          let term = array[l];
+
+          if (title.indexOf(term) > -1) {
+              photoLinks[k].parentElement.style = "display:block;";
+          }
+      }
   }
 }
 
