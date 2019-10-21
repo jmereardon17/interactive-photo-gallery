@@ -1,4 +1,4 @@
-var imageContent = [
+const imageContent = [
   {
     'file' : '01.jpg',
     'title' : 'Hay Bales',
@@ -63,7 +63,7 @@ var imageContent = [
 
 const printHTMLGallery = array => {
   let html = '<ul class="gallery">';
-  for (var i = 0; i < array.length; i += 1) {
+  for (let i = 0; i < array.length; i += 1) {
     html += '<li class="gallery__item">';
     html += '<a class="gallery__link" href="img/' + array[i].file + '" ';
     html += 'data-lightbox="scenery" data-title="' + array[i].caption + '" ';

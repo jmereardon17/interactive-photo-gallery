@@ -28,18 +28,6 @@ const getSearchTermsAsArray = (input) => {
   return searchTerms;
 }
 
-// const checkSearchTerms = (array) => {
-//   for (let k = 0; k < imageContent.length; k += 1) {
-//     let term = array[k];
-//     let title = imageContent[k].title.toLowerCase();
-//     if ( title.indexOf(term) > -1 ) {
-//       photoLinks[k].parentElement.style = "display:block;";
-//     } else {
-//       photoLinks[k].parentElement.style = "display:none;";
-//     }
-//   }
-// }
-
 const checkSearchTerms = (array) => {
   for (let k = 0; k < imageContent.length; k += 1) {
       photoLinks[k].parentElement.style = "display:none;";
@@ -63,35 +51,12 @@ search = document.getElementById("searchInput");
 photoLinks = document.querySelectorAll(".gallery__link");
 
 // Attach an event listener to the search button with the "keyup" event
-// search.addEventListener("keyup", function(){
-//   for (let i = 0; i < imageContent.length; i += 1) {
-
-//     let caption = imageContent[i].caption.toLowerCase();
-//     let title = imageContent[i].title.toLowerCase();
-//     searchStr = search.value.toLowerCase();
-
-//     // Check to see if the caption matches the search input
-//     if ( caption.indexOf(searchStr) > -1 ) {
-//       photoLinks[i].parentElement.style = "display:block;";
-//       // Check to see if the title matches the search input
-//     } else if ( title.indexOf(searchStr) > -1 ) {
-//       photoLinks[i].parentElement.style = "display:block;";
-//       // Check to see if the search term array values matches any of the image titles
-//     } else {
-//       if ( searchStr.includes(",") ) {
-//         getSearchTermsAsArray(searchStr);
-//         checkSearchTerms(searchStr);
-//       }
-//     }
-//   }
-// });
-
 search.addEventListener('keyup', function(){
   for (let i = 0; i < imageContent.length; i += 1) {
-
     let caption = imageContent[i].caption.toLowerCase();
     let title = imageContent[i].title.toLowerCase();
     searchStr = search.value.toLowerCase();
+    
     if (searchStr.includes(',')) {
       getSearchTermsAsArray(searchStr);
       checkSearchTerms(searchTerms);
