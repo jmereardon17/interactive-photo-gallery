@@ -1,4 +1,4 @@
-const imageContent = [
+const images = [
   {
     'file' : '01.jpg',
     'title' : 'Hay Bales',
@@ -60,20 +60,3 @@ const imageContent = [
     'caption' : 'I walked through this meadow of bluebells and got a good view of the snow on the mountain before the fog came in.'
   },
 ];
-
-const printHTMLGallery = array => {
-  let html = '<ul class="gallery">';
-  for (let i = 0; i < array.length; i += 1) {
-    html += '<li class="gallery__item">';
-    html += '<a class="gallery__link" href="img/' + array[i].file + '" ';
-    html += 'data-lightbox="scenery" data-title="' + array[i].caption + '" ';
-    html += 'data-keywords="' + array[i].title + '">';
-    html += '<img src="img/thumbnails/' + array[i].file + '" alt="' + array[i].title + ' Image">';
-    html += '</a>';
-    html += '</li>';
-  }
-  html += '</ul>';
-  document.write(html);
-};
-
-printHTMLGallery(imageContent);
