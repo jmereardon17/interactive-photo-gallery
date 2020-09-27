@@ -60,3 +60,25 @@ const images = [
     'caption' : 'I walked through this meadow of bluebells and got a good view of the snow on the mountain before the fog came in.'
   },
 ];
+
+const container = document.querySelector('.container');
+
+const displayGallery = array => {
+  let html = `<ul class="gallery">`;
+  array.forEach(item => {
+    const { file, caption, title } = item;
+    html += `<li class="gallery__item">
+               <a class="gallery__link"
+                  href="img/${file}"
+                  data-lightbox="scenery"
+                  data-title="${caption}"
+                  data-keywords="${title}">
+                  <img src="img/thumbnails/${file}" alt="${title} Image">
+               </a>
+            </li>`
+  });
+  html += `</ul>`;
+  container.innerHTML += html;
+}
+
+displayGallery(images);
